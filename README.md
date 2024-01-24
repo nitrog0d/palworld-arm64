@@ -42,7 +42,7 @@ There are 3 environment variables you can set, everything else is configurable t
 
 ### More information on multithreading and community server (and other settings): https://tech.palworldgame.com/dedicated-server-guide
 
-# Based on
+## Based on
 - https://github.com/TeriyakiGod/steamcmd-docker-arm64
 - https://github.com/thijsvanloef/palworld-server-docker
 - https://github.com/jammsen/docker-palworld-dedicated-server
