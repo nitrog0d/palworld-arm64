@@ -6,17 +6,24 @@ function installServer() {
 }
 
 function main() {
+  # TODO: Add auto backup script
+  
   # Check if we have proper read/write permissions to /palworld
   if [ ! -r "/palworld" ] || [ ! -w "/palworld" ]; then
       echo 'ERROR: I do not have read/write permissions to /palworld! Please run "chown -R 1000:1000 palworld/" on host machine, then try again.'
       exit 1
   fi
 
+  # Check for SteamCMD updates
+  echo 'Checking for SteamCMD updates...'
+  FEXBash './steamcmd.sh +quit'
+
   # Check if the server is installed
   if [ ! -f "/palworld/PalServer.sh" ]; then
       echo 'Server not found! Installing... (Do not panic if it looks stuck)'
       installServer
   fi
+  # TODO: Don't run this if it's the first install (It does double checking on files on first install if this is enabled)
   # If auto updates are enabled, try updating
   if [ "$ALWAYS_UPDATE_ON_START" == "true" ]; then
       echo 'Checking for updates... (Do not panic if it looks stuck)'
